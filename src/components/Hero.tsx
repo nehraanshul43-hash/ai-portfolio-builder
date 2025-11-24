@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -38,8 +39,9 @@ const Hero = () => {
               size="lg" 
               variant="outline"
               className="border-2"
+              asChild
             >
-              Download Resume
+              <Link to="/cv">View Resume</Link>
             </Button>
           </div>
 
