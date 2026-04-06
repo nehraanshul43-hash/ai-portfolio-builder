@@ -1,105 +1,72 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink } from "lucide-react";
-
 const projects = [
   {
     title: "Heart Disease Prediction",
-    description: "End-to-end ML pipeline with data preprocessing, feature engineering, and model deployment for predicting heart disease risk.",
-    tech: ["Python", "scikit-learn", "Pandas", "Flask"],
+    description:
+      "End-to-end ML pipeline with data preprocessing, feature engineering, and model serving via a Flask API.",
+    tech: ["Python", "scikit-learn", "Flask", "Pandas"],
     github: "#",
-    demo: "#"
   },
   {
     title: "Waste Image Classifier",
-    description: "CNN-based computer vision model for automated waste classification to improve recycling efficiency.",
-    tech: ["TensorFlow", "Keras", "OpenCV", "Python"],
+    description:
+      "CNN-based computer vision model for automated waste classification to improve recycling workflows.",
+    tech: ["TensorFlow", "Keras", "OpenCV"],
     github: "#",
-    demo: "#"
-  },
-  {
-    title: "Sentiment Analyzer",
-    description: "NLP application for real-time sentiment analysis of text data using transformer models.",
-    tech: ["PyTorch", "Transformers", "NLTK", "Streamlit"],
-    github: "#",
-    demo: "#"
   },
   {
     title: "RAG-based FAQ Chatbot",
-    description: "Retrieval-augmented generation chatbot for intelligent question answering from custom knowledge bases.",
-    tech: ["LangChain", "OpenAI", "Vector DB", "FastAPI"],
+    description:
+      "Retrieval-augmented generation chatbot for intelligent Q&A from custom knowledge bases.",
+    tech: ["LangChain", "FastAPI", "OpenAI"],
     github: "#",
-    demo: "#"
   },
   {
-    title: "End-to-End ML App",
-    description: "Complete ML application with model training, API development, and interactive UI for predictions.",
-    tech: ["Python", "FastAPI", "React", "Docker"],
+    title: "Sentiment Analyzer",
+    description:
+      "NLP application for real-time sentiment analysis using transformer models and a Streamlit interface.",
+    tech: ["PyTorch", "Transformers", "Streamlit"],
     github: "#",
-    demo: "#"
   },
-  {
-    title: "Image Caption Generator",
-    description: "Deep learning model combining CNN and LSTM for automatic image caption generation.",
-    tech: ["TensorFlow", "Keras", "CNN", "LSTM"],
-    github: "#",
-    demo: "#"
-  }
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
-          Featured Projects
-        </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <section id="projects" className="py-24 bg-card">
+      <div className="max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl font-bold tracking-tight mb-12">Projects</h2>
+        <div className="space-y-6">
           {projects.map((project, idx) => (
-            <Card 
+            <a
               key={idx}
-              className="p-6 shadow-[var(--shadow-card)] border-2 hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col animate-fade-in-up"
-              style={{ animationDelay: `${idx * 0.1}s` }}
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-6 rounded-lg border bg-background hover:border-foreground/20 transition-all duration-200 group"
             >
-              <div className="flex-grow space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">{project.title}</h3>
-                <p className="text-muted-foreground">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, techIdx) => (
-                    <Badge key={techIdx} variant="outline" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-2">
+                  <h3 className="text-lg font-semibold group-hover:underline underline-offset-4">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs px-2 py-0.5 rounded-full bg-accent text-muted-foreground"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+                <span className="text-muted-foreground group-hover:text-foreground transition-colors mt-1 shrink-0">
+                  ↗
+                </span>
               </div>
-              
-              <div className="flex gap-3 mt-6 pt-4 border-t">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="flex-1"
-                  asChild
-                >
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </a>
-                </Button>
-                <Button 
-                  size="sm" 
-                  className="flex-1 bg-gradient-to-r from-primary to-accent"
-                  asChild
-                >
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
-                  </a>
-                </Button>
-              </div>
-            </Card>
+            </a>
           ))}
         </div>
       </div>

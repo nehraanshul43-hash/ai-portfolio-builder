@@ -1,57 +1,41 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-
-const skillCategories = [
+const skillGroups = [
   {
-    title: "Programming",
-    skills: ["Python", "C/C++", "Java", "JavaScript"]
+    category: "Languages",
+    items: ["Python", "C/C++", "Java", "JavaScript", "TypeScript"],
   },
   {
-    title: "ML / AI",
-    skills: ["scikit-learn", "NumPy", "Pandas", "TensorFlow", "PyTorch", "OpenCV", "Keras"]
+    category: "Web Technologies",
+    items: ["React", "HTML/CSS", "FastAPI", "Flask", "REST APIs"],
   },
   {
-    title: "Tools & Platforms",
-    skills: ["Jupyter", "Git/GitHub", "Kaggle", "SQL", "Google Colab", "VS Code"]
+    category: "Databases",
+    items: ["SQL", "PostgreSQL", "MongoDB"],
   },
   {
-    title: "Development",
-    skills: ["FastAPI", "Flask", "Streamlit", "Gradio", "HTML/CSS", "REST APIs"]
+    category: "Tools & Platforms",
+    items: ["Git & GitHub", "Docker", "VS Code", "Linux", "Jupyter", "Google Colab"],
   },
-  {
-    title: "Core Concepts",
-    skills: ["Data Structures", "OOP", "DBMS", "Operating Systems", "Computer Networks"]
-  }
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
-          Skills & Technologies
-        </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {skillCategories.map((category, idx) => (
-            <Card 
-              key={idx} 
-              className="p-6 shadow-[var(--shadow-card)] border-2 hover:border-primary/20 transition-all duration-300 hover:shadow-xl animate-fade-in-up"
-              style={{ animationDelay: `${idx * 0.1}s` }}
-            >
-              <h3 className="text-xl font-bold mb-4 text-primary">{category.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIdx) => (
-                  <Badge 
-                    key={skillIdx} 
-                    variant="secondary"
-                    className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-                  >
-                    {skill}
-                  </Badge>
+    <section id="skills" className="py-24">
+      <div className="max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl font-bold tracking-tight mb-12">Skills</h2>
+        <div className="grid sm:grid-cols-2 gap-10">
+          {skillGroups.map((group) => (
+            <div key={group.category}>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+                {group.category}
+              </h3>
+              <ul className="space-y-2">
+                {group.items.map((item) => (
+                  <li key={item} className="text-foreground">
+                    {item}
+                  </li>
                 ))}
-              </div>
-            </Card>
+              </ul>
+            </div>
           ))}
         </div>
       </div>
