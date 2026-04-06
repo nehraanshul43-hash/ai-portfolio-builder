@@ -1,35 +1,19 @@
-import { Card } from "@/components/ui/card";
-
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 animate-fade-in">
-            About Me
-          </h2>
-          
-          <Card className="p-8 shadow-[var(--shadow-card)] border-2 hover:border-primary/20 transition-all duration-300 animate-scale-in">
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                I'm currently pursuing my <span className="text-foreground font-semibold">B.Tech in Computer Science Engineering (AIML)</span>, 
-                where I've developed a deep passion for artificial intelligence and machine learning.
-              </p>
-              
-              <p>
-                My expertise spans across <span className="text-foreground font-semibold">Python, Machine Learning, Deep Learning, and Data Structures & Algorithms</span>. 
-                I love working on end-to-end model development — from data preprocessing and feature engineering 
-                to model training, deployment, and building intuitive interfaces.
-              </p>
-              
-              <p>
-                I'm driven by the challenge of <span className="text-foreground font-semibold">solving real-world problems</span> through 
-                intelligent systems and creating ML-powered applications that make a meaningful impact. 
-                Whether it's computer vision, natural language processing, or predictive analytics, 
-                I'm always eager to learn and build innovative solutions.
-              </p>
-            </div>
-          </Card>
+    <section id="about" className="py-24">
+      <div className="max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl font-bold tracking-tight mb-8">About</h2>
+        <div className="space-y-5 text-muted-foreground text-lg leading-relaxed">
+          <p>
+            I'm a Computer Science Engineering student specializing in AI & ML, focused on
+            building practical software that solves real problems. I enjoy the full cycle —
+            from understanding a problem to shipping a working solution.
+          </p>
+          <p>
+            My core interests lie in machine learning, backend development, and writing
+            clean, maintainable code. I'm always learning, whether it's a new framework,
+            algorithm, or system design pattern.
+          </p>
         </div>
       </div>
     </section>
